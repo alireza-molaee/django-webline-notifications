@@ -8,7 +8,7 @@ this is a django application to avoid user about events. you can notify everythi
  * sent notification to list of user
  
 #TODO
- -[] improve ui
- -[] improve api
- -[] custom admin interface
+- [x] improve ui
+- [ ] improve api
+- [ ] custom admin interface
  
