@@ -9,3 +9,4 @@ manage.py
 django_notification
 **/migrations/**
 !**/migrations/__init__.py
+db.sqlite3
