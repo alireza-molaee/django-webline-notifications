@@ -1,22 +1,6 @@
 from django.db import models
 from django.db.models import Q
-from django.apps import apps as django_apps
 from django.conf import settings
-from django.core.exceptions import ImproperlyConfigured
-
-
-def get_user_model():
-    """
-    Returns the User model that is active in this project.
-    """
-    try:
-        return django_apps.get_model(settings.AUTH_USER_MODEL)
-    except ValueError:
-        raise ImproperlyConfigured("AUTH_USER_MODEL must be of the form 'app_label.model_name'")
-    except LookupError:
-        raise ImproperlyConfigured(
-            "AUTH_USER_MODEL refers to model '%s' that has not been installed" % settings.AUTH_USER_MODEL
-        )
 
 
 class NotSeenQuerySet(models.QuerySet):
@@ -28,8 +12,11 @@ class NotSeenQuerySet(models.QuerySet):
 
 
 class Notification(models.Model):
-    user = models.ForeignKey(get_user_model(), related_name="notifications",
-                             related_query_name="user")
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name="notifications",
+        related_query_name="user",
+        )
     icon = models.CharField(max_length=40)
     COLOR_WARNING = '#f39c12'
     COLOR_DANGER = '#f56954'
@@ -48,12 +35,25 @@ class Notification(models.Model):
         (COLOR_BLACK, 'Black'),
     
     )
-    color = models.CharField(max_length=7, choices=COLOR_CHOICES,
-                             default=COLOR_BLACK)
-    content = models.TextField(max_length=200)
-    url = models.URLField(blank=True, null=True)
-    seen_date = models.DateField(blank=True, null=True, editable=False)
-    send_date = models.DateField(auto_now_add=True)
+    color = models.CharField(
+        max_length=7,
+        choices=COLOR_CHOICES,
+        default=COLOR_BLACK
+    )
+    content = models.TextField(
+        max_length=200
+    )
+    url = models.URLField(
+        blank=True,
+        null=True
+    )
+    seen_date = models.DateField(
+        blank=True,
+        null=True,
+        editable=False)
+    send_date = models.DateField(
+        auto_now_add=True
+    )
 
     objects = NotSeenQuerySet.as_manager()
     
@@ -94,18 +94,25 @@ class Notification(models.Model):
 
     @classmethod
     def seen_all(cls, user):
+        """
+        all notification for a user will be set seen_date
+        :param user: User model object
+        """
         import datetime
         cls.objects.not_seen(user).update(seen_date=datetime.date.today())
 
     @classmethod
     def del_all(cls):
+        """
+        delete all notification that seen more than one day
+        """
         from datetime import date, timedelta
         cls.objects.filter(seen_date__lte=date.today()-timedelta(1)).delete()
         
     def get_icon_html(self):
         out_html = '<i class="{} {}" style="color:{};"></i>'.format(
             self.icon.split('-')[0], self.icon, self.color)
-        return out_html #TODO: add fontawsome to admin list template
+        return out_html
     
     def get_link(self):
         out_html = '<a href="{}"><i class="fa fa-link"></i>Link</a>'.format(
