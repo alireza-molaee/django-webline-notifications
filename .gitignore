@@ -7,3 +7,5 @@ gen
 env/
 manage.py
 django_notification
+**/migrations/**
+!**/migrations/__init__.py
