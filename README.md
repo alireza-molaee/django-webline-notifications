@@ -8,7 +8,10 @@ this is a django application to avoid user about events. you can notify everythi
  * sent notification to list of user
  
 ##TODO
-- [x] improve ui
-- [ ] improve api
-- [ ] custom admin interface
+- [x] add test for models
+- [ ] override admin template
+- [ ] add template tags
+- [ ] add view to change see status
+- [ ] add view to delete notifications wich seen more than one day 
+- [ ] add test for view 
  
