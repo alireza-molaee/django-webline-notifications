@@ -10,7 +10,7 @@ install_requires = [
 setup(
     name='django_simple_notification',
     version='0.1',
-    packages=['simple_notification'],
+    packages=['simple_notifications'],
     include_package_data=True,
     url='https://github.com/alireza-molaee/w_notifications',
     license='GNU General Public License (GPL)',
