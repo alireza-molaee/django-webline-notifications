@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include simple_notifications/static *
+recursive-include simple_notifications/templates *
