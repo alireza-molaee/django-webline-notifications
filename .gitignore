@@ -11,4 +11,4 @@ django_notification
 !**/migrations/__init__.py
 /MANIFEST
 db.sqlite3
-/dist
+/distz
