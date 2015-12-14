@@ -1,0 +1,25 @@
+{% load notifications_tag %}
+
+<a href="#" id="notifications-menu" class="dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-bell-o"></i>
+    {% if not_seen_count != 0 %}<span class="label label-warning">{{ not_seen_count }}</span>{% endif %}
+</a>
+<ul class="dropdown-menu">
+    <li class="header">You have {{ all_count }} notification{{ all_count|pluralize }}</li>
+    <li>
+        <!-- inner menu: contains the actual data -->
+        <ul class="menu">
+            {% if notifications %}
+                {% for n in notifications %}
+                    <a {% if not n.seen_date %}class="ns-not-seen"{% endif %} href="{% if n.url %}{{ n.url }}{% else %}#{% endif %}">
+                        <i class="{{ n.icon|icon_type }} {{ n.icon }}" style="color: {{ n.color }};"></i> {{ n.content }}
+                        <span class="ns-seen-date">{{ n.seen_date }}</span>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <span class="ns-no-notification">you don't have Notification</span>
+            {% endif %}
+        </ul>
+    </li>
+    <li class="footer"><a href="#" data-toggle="modal" data-target="#notificatios-modal">View all</a></li>
+</ul>
