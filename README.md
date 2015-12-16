@@ -1,7 +1,7 @@
 Django Simple Notifications
 ===========================
 this is a django application to avoid user about events. you can notify everything to user or users you want too easy. 
-##Feature
+###Feature
  * chose icon for notification
  * chose yor notification status or color
  * notification can be link
@@ -18,6 +18,14 @@ If you want to stay on the bleeding edge of the app:
 $ git clone https://github.com/alireza-molaee/django_simple_notifications.git
 $ cd django_simple_notifications
 $ python setup.py install
+```
+###install on django
+now you can add django-simple-notifications to the settings.py file:
+```
+INSTALLED_APPS = (
+    ...
+    'simple-notifications'.
+)
 ```
 ##TODO
 - [x] add test for models
