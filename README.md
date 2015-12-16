@@ -7,6 +7,18 @@ this is a django application to avoid user about events. you can notify everythi
  * notification can be link
  * sent notification to list of user
  
+##How to install
+###Downloading the package
+Probably the best way to install is by using PIP:
+'''
+$ pip install django-notify-x
+'''
+If you want to stay on the bleeding edge of the app:
+'''
+$ git clone https://github.com/alireza-molaee/django_simple_notifications.git
+$ cd django_simple_notifications
+$ python setup.py install
+'''
 ##TODO
 - [x] add test for models
 - [ ] override admin template
