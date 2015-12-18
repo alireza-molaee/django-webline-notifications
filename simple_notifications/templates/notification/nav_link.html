@@ -11,8 +11,8 @@
             {% for n in notifications %}
                 <li class="ns-li-menu">
                     <a {% if not n.seen_date %}class="ns-not-seen"{% endif %} href="{% if n.url %}{{ n.url }}{% else %}#{% endif %}">
-                        <i class="{{ n.icon|icon_type }} {{ n.icon }}" style="color: {{ n.color }};"></i> {{ n.content }}
-                        <span class="ns-seen-date">{{ n.seen_date }}</span>
+                        <i class="{{ n.icon|icon_type }} {{ n.icon }}" style="color: {{ n.color }};"></i> {{ n.content|truncatechars:30 }}
+                        {% if n.seen_date %}<span class="ns-seen-date">{{ n.seen_date|timeuntil }}</span>{% endif %}
                     </a>
                 </li>
             {% endfor %}
