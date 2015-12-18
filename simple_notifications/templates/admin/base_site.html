@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load notifications_tag admin_static %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link href="{% static "simple_notifications/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css" />
+    <script src="{% static "simple_notifications/jquery/jquery-1.11.3.min.js" %}" type="text/javascript"></script>
+    <link href="{% static "simple_notifications/ns-style.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+
+{% block nav-global %}
+{% if user.id %}
+    {% notifications_link user 20 %}
+{% endif %}
+{% endblock %}
