@@ -12,3 +12,4 @@ django_notification
 /MANIFEST
 db.sqlite3
 /dist
+*.pyc
