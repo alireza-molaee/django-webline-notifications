@@ -1,0 +1,64 @@
+.ns-container{
+    width: 50px;
+    float: right;
+    text-align: center;
+}
+.ns-nav-btn {
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 15%;
+    color: white;
+    background: none;
+}
+
+.ns-badge{
+    position: absolute;
+    background: #ECA701 none repeat scroll 0% 0%;
+    padding: 2px 6px;
+    font-size: 0.8em;
+    margin-top: -15px;
+    border-radius: 10px;
+}
+.ns-box-dropdown {
+    position: absolute;
+    width: 230px;
+    margin-top: 10px;
+    margin-left: -90px;
+    z-index: 10;
+}
+.ns-list-dropdown {
+    background: #F8F8F8;
+    border: 1px solid #9b9b9b;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    box-shadow: 0px 0px 7px rgb(129, 128, 128);
+}
+.ns-list-dropdown li {
+    list-style: none;
+    padding: 15px;
+    line-height: 0px;
+    color: #0e0e0e;
+    text-align: center;
+    z-index: 100000;
+}
+.ns-list-dropdown li a {
+    color: #036 !important;
+}
+
+.ns-li-menu {
+    text-align: left !important;
+    padding-left: 20px !important;
+    border-top: 1px ridge rgb(155, 155, 155);
+}
+
+.ns-li-footer {
+    border-top: 1px solid rgb(155, 155, 155);
+}
+
+.ns-li-header {
+    border-bottom: 1px solid rgb(155, 155, 155);
+}
