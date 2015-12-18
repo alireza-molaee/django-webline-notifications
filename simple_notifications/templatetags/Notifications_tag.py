@@ -8,7 +8,7 @@ register = Library()
 @register.inclusion_tag('notification/nav_link.html')
 def notifications_link(user, limit=None):
     all_count = Notification.objects.count()
-    not_seen_count = Notification.objects.not_seen(user)
+    not_seen_count = Notification.objects.not_seen(user).count()
     if limit is None:
         notifications = Notification.objects.filter(
             user=user
