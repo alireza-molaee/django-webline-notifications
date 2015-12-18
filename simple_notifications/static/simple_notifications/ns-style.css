@@ -37,10 +37,19 @@
     margin: 0px;
     box-shadow: 0px 0px 7px rgb(129, 128, 128);
 }
+
+.ns-list-dropdown a:hover {
+    text-decoration: none !important;
+    background: #b2c8d0;
+}
+
+.ns-list-dropdown a:focus {
+    text-decoration: none !important;
+    background: #c1d1d7;
+}
+
 .ns-list-dropdown li {
     list-style: none;
-    padding: 15px;
-    line-height: 0px;
     color: #0e0e0e;
     text-align: center;
     z-index: 100000;
@@ -51,14 +60,37 @@
 
 .ns-li-menu {
     text-align: left !important;
-    padding-left: 20px !important;
-    border-top: 1px ridge rgb(155, 155, 155);
+    border-bottom: 1px solid rgb(191, 191, 191);
 }
 
-.ns-li-footer {
-    border-top: 1px solid rgb(155, 155, 155);
+
+.ns-li-menu a {
+    padding: 5px;
+    display: block;
+    overflow: auto;
+}
+
+.ns-li-footer a {
+    padding: 5px 0;
+    display: block;
 }
 
 .ns-li-header {
     border-bottom: 1px solid rgb(155, 155, 155);
+    padding: 5px 0;
+}
+
+.ns-li-menu a i {
+margin: 0 3px;
+}
+
+.ns-seen-date {
+    float: right;
+    font-size: 0.8em;
+    margin-right: 5px;
+    color: rgb(161, 153, 153);
+}
+
+.ns-not-seen{
+    background: #dbe9f1;
 }
