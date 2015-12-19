@@ -23,6 +23,7 @@ def notifications_link(user, limit=None):
             'icon': n.icon,
             'color': n.color,
             'content': n.content,
+            'send_date': n.send_date,
             'seen_date': n.seen_date,
             'url': n.url}
         notifications_list.append(notifications_dic)
