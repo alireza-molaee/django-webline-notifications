@@ -47,12 +47,12 @@ class Notification(models.Model):
         blank=True,
         null=True
     )
-    seen_date = models.DateField(
+    seen_date = models.DateTimeField(
         blank=True,
         null=True,
         editable=False)
-    send_date = models.DateField(
-        auto_now_add=True
+    send_date = models.DateTimeField(
+        auto_now=True,
     )
 
     objects = NotSeenQuerySet.as_manager()
@@ -99,7 +99,7 @@ class Notification(models.Model):
         :param user: User model object
         """
         import datetime
-        cls.objects.not_seen(user).update(seen_date=datetime.date.today())
+        cls.objects.not_seen(user).update(seen_date=datetime.datetime.now())
 
     @classmethod
     def del_all(cls):
