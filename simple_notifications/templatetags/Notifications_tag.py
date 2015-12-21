@@ -27,8 +27,10 @@ def notifications_link(user, limit=None):
             'seen_date': n.seen_date,
             'url': n.url}
         notifications_list.append(notifications_dic)
-    return {'notifications': notifications_list, 'all_count': all_count,
-            'not_seen_count': not_seen_count}
+    return {'notifications': notifications_list,
+            'all_count': all_count,
+            'not_seen_count': not_seen_count,
+            }
 
 
 @register.filter(name='icon_type')
