@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import Q
 from django.conf import settings
+from django.utils.html import format_html
 
 
 class NotSeenQuerySet(models.QuerySet):
@@ -110,14 +111,21 @@ class Notification(models.Model):
         cls.objects.filter(seen_date__lte=date.today()-timedelta(1)).delete()
         
     def get_icon_html(self):
-        out_html = '<i class="{} {}" style="color:{};"></i>'.format(
-            self.icon.split('-')[0], self.icon, self.color)
-        return out_html
+        return format_html(
+            '<i class="{} {}" style="color:{};width:100%;text-align:center;"></i>',
+            self.icon.split('-')[0],
+            self.icon,
+            self.color,
+        )
     
     def get_link(self):
-        out_html = '<a href="{}"><i class="fa fa-link"></i>Link</a>'.format(
-            self.url)
-        return out_html
+        if self.url:
+            return format_html(
+                '<a href="{}"><i class="fa fa-link"></i>&nbspLink</a>',
+                self.url,
+                )
+        else:
+            return '-'
 
     class Meta:
         ordering = ['-id']
