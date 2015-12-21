@@ -1,6 +1,6 @@
 Django Simple Notifications
 ===========================
-[Imgur](http://i.imgur.com/TxoZeaG.png)
+![Imgur](http://i.imgur.com/TxoZeaG.png)
 
 this is a django application to avoid user about events. you can notify everything to user or users you want too easy. 
 ###Feature
