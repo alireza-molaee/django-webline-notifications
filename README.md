@@ -1,6 +1,6 @@
 Django Simple Notifications
 ===========================
-![screen shot](screen-shot.jpg?raw=true)
+![screen shot](/../master/screen-shot.jpg?raw=true)
 
 this is a django application to avoid user about events. you can notify everything to user or users you want too easy. 
 ###Feature
