@@ -43,11 +43,11 @@ $ python manage.py runserver
 - [x] add test for models
 - [x] add font-awesome to admin
 - [x] add template tags to use any template
-- [ ] add view to change see status
+- [x] add view to change see status
 - [ ] add view to delete notifications wich seen more than one day 
 - [ ] add test for view 
 - [ ] add defult settings
  - [ ] font file
  - [ ] defult notification count to show
  - [ ] max of notification can be archived
-- [ ] handle all event by ajax
+- [x] handle all event by ajax
