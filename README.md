@@ -1,21 +1,23 @@
 Django Simple Notifications
 ===========================
-![Imgur](http://i.imgur.com/TxoZeaG.png)
+![screen shot](screen-shot.jpg?raw=true)
 
-this is a django application to avoid user about events. you can notify everything to user or users you want too easy. 
-###Feature
- * chose icon for notification
- * chose yor notification status or color
- * notification can be link
- * sent notification to list of user
+This is a django application to notify user about events.
+You can simply inform user about all kind of updates.
+
+###Features
+ * Chose notification status and color
+ * Thumbnail for notification
+ * Notification has a url, can be passed in other notifcations
+ * Send group (to list of users) notification
  
 ##How to install
 ###Downloading the package
 Probably the best way to install is by using PIP:
 ```
-$ pip install django_simple_notifications
+$ pip install git+https://github.com/alireza-molaee/django_simple_notifications.git#egg=django_simple_notificaions
 ```
-If you want to stay on the bleeding edge of the app:
+If you want to clone the main repository:
 ```
 $ git clone https://github.com/alireza-molaee/django_simple_notifications.git
 $ cd django_simple_notifications
