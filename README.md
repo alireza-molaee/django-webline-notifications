@@ -1,5 +1,6 @@
 Django Simple Notifications
 ===========================
+![screen shot](http://i.imgur.com/TxoZeaG.png)
 
 This is a django application to notify user about events.
 You can simply inform user about all kind of updates.
