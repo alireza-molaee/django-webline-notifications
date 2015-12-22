@@ -7,14 +7,14 @@ You can simply inform user about all kind of updates.
 ###Features
  * Chose notification status and color
  * Thumbnail for notification
- * Notification has a URL, can passed in other notifcations
+ * Notification has a URL, can passed in other notifications
  * Send group (to list of users) notification
  
 ##How to install
 ###Downloading the package
 Probably the best way to install is by using PIP:
 ```
-$ pip install git+https://github.com/alireza-molaee/django_simple_notifications.git#egg=django_simple_notificaions
+$ pip install git+https://github.com/alireza-molaee/django_simple_notifications.git#egg=django_simple_notifications
 ```
 If you want to clone the main repository:
 ```
