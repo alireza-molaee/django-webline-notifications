@@ -1,6 +1,5 @@
 Django Simple Notifications
 ===========================
-![screen shot](screen-shot.jpg?raw=true)
 
 This is a django application to notify user about events.
 You can simply inform user about all kind of updates.
@@ -8,7 +7,7 @@ You can simply inform user about all kind of updates.
 ###Features
  * Chose notification status and color
  * Thumbnail for notification
- * Notification has a url, can be passed in other notifcations
+ * Notification has a URL, can passed in other notifcations
  * Send group (to list of users) notification
  
 ##How to install
@@ -48,10 +47,10 @@ $ python manage.py runserver
 - [x] add font-awesome to admin
 - [x] add template tags to use any template
 - [x] add view to change see status
-- [ ] add view to delete notifications wich seen more than one day 
+- [ ] add view to delete notifications which seen more than one day 
 - [ ] add test for view 
-- [ ] add defult settings
+- [ ] add default settings
  - [ ] font file
- - [ ] defult notification count to show
+ - [ ] default notification count to show
  - [ ] max of notification can be archived
-- [x] handle all event by ajax
+- [x] handle all event by AJAX
