@@ -1,5 +1,5 @@
 from django.template import Library
-from simple_notifications.models import Notification
+from webline_notifications.models import Notification
 from django.template.defaultfilters import stringfilter
 
 register = Library()

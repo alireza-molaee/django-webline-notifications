@@ -8,11 +8,11 @@ install_requires = [
 ]
 
 setup(
-    name='django_simple_notification',
+    name='django-webline-notifications',
     version='0.1',
-    packages=['simple_notifications'],
+    packages=['webline_notifications'],
     include_package_data=True,
-    url='https://github.com/alireza-molaee/w_notifications',
+    url='https://github.com/alireza-molaee/django-webline-notifications',
     license='GNU General Public License (GPL)',
     author='alireza molaee',
     author_email='alirezamolaii@gmail.com',

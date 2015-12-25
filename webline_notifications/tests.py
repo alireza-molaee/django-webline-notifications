@@ -138,8 +138,6 @@ class NotificationsTestCase(TestCase):
             )[0].limit_notification()
             all_n_after = Notification.objects.filter(user=self.admin_user)
             count = all_n_after.count()
-            first_content = all_n_after.order_by('send_date')[0].content
-            last_content = all_n_after.order_by('-send_date')[0].content
             self.assertEqual(
                 count,
                 5

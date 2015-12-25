@@ -17,7 +17,7 @@
                 </li>
             {% endfor %}
         {% endif %}
-        <li class="ns-li-footer"><a href="{% url 'admin:simple_notifications_notification_changelist' %}">View all</a></li>
+        <li class="ns-li-footer"><a href="{% url 'admin:webline_notifications_notification_changelist' %}">View all</a></li>
     </ul>
 </div>
 
@@ -29,7 +29,7 @@
                 function(){
                     $('.ns-list-dropdown').slideToggle();
                     if(not_first_click_on_nsbtndropdown){
-                        $.get("{% url 'simple_notifications:see_all_notification' %}", function (data, status) {
+                        $.get("{% url 'webline_notifications:see_all_notification' %}", function (data, status) {
                             console.log(status);
                             if (status == 'success') {
                                 $('#ns-btn-dropdown span.ns-badge').remove();
