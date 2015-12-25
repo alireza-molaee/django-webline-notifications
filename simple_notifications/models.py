@@ -8,6 +8,7 @@ class NotSeenQuerySet(models.QuerySet):
     """
     this is shortcut to filter notifications that not seen yet
     """
+
     def not_seen(self, user):
         return self.filter(Q(seen_date__isnull=True) & Q(user=user))
 
@@ -17,7 +18,7 @@ class Notification(models.Model):
         settings.AUTH_USER_MODEL,
         related_name="notifications",
         related_query_name="user",
-        )
+    )
     icon = models.CharField(max_length=40)
     COLOR_WARNING = '#f39c12'
     COLOR_DANGER = '#f56954'
@@ -34,7 +35,7 @@ class Notification(models.Model):
         (COLOR_PRIMARY, 'Primary'),
         (COLOR_GRAY, 'Gray'),
         (COLOR_BLACK, 'Black'),
-    
+
     )
     color = models.CharField(
         max_length=7,
@@ -57,7 +58,7 @@ class Notification(models.Model):
     )
 
     objects = NotSeenQuerySet.as_manager()
-    
+
     @property
     def seen(self):
         """
@@ -100,16 +101,27 @@ class Notification(models.Model):
         :param user: User model object
         """
         import datetime
-        cls.objects.not_seen(user).update(seen_date=datetime.datetime.now())
 
-    @classmethod
-    def del_all(cls):
-        """
-        delete all notification that seen more than one day
-        """
-        from datetime import date, timedelta
-        cls.objects.filter(seen_date__lte=date.today()-timedelta(1)).delete()
-        
+        try:
+            cls.objects.not_seen(user).update(
+                seen_date=datetime.datetime.now())
+        except:
+            raise 
+        return True
+
+    def save(self, *args, **kwargs):
+        self.limit_notification()
+        super(Notification, self).save(*args, **kwargs)
+    
+    def limit_notification(self):
+        all_not = self.user.notifications
+        limit = getattr(settings, 'SIMPLE_NOTIFICATIONS_LIMIT', False)
+        if limit and (all_not.count() > limit):
+            delta = all_not.count() - limit
+            old_notifications = all_not.order_by('send_date')[:delta]
+            for n in old_notifications:
+                n.delete()
+
     def get_icon_html(self):
         return format_html(
             '<i class="{} {}" style="color:{};width:100%;text-align:center;"></i>',
@@ -117,15 +129,13 @@ class Notification(models.Model):
             self.icon,
             self.color,
         )
-    
+
     def get_link(self):
         if self.url:
             return format_html(
                 '<a href="{}"><i class="fa fa-link"></i>&nbspLink</a>',
                 self.url,
-                )
-        else:
-            return '-'
+            )
 
     class Meta:
         ordering = ['-id']
