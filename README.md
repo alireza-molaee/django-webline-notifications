@@ -29,6 +29,7 @@ now you can add django-simple-notifications to the settings.py file:
 INSTALLED_APPS = (
     ...
     'simple-notifications',
+    'django.contrib.admin',
 )
 ```
 Then run migrations:
