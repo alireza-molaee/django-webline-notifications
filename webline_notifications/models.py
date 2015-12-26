@@ -115,7 +115,7 @@ class Notification(models.Model):
     
     def limit_notification(self):
         all_not = self.user.notifications
-        limit = getattr(settings, 'SIMPLE_NOTIFICATIONS_LIMIT', False)
+        limit = getattr(settings, 'WEBLINE_NOTIFICATIONS_LIMIT', False)
         if limit and (all_not.count() > limit):
             delta = all_not.count() - limit
             old_notifications = all_not.order_by('send_date')[:delta]
