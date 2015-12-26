@@ -112,7 +112,7 @@ class NotificationsTestCase(TestCase):
                 Notification.COLOR_DANGER,
                 url='http://www.google.com/'
             )
-        with self.settings(SIMPLE_NOTIFICATIONS_LIMIT=5):
+        with self.settings(WEBLINE_NOTIFICATIONS_LIMIT=5):
             Notification.objects.filter(
                 user=self.admin_user
             )[0].limit_notification()
@@ -132,12 +132,14 @@ class NotificationsTestCase(TestCase):
                 last_content,
                 'test 7'
             )
-        with self.settings(SIMPLE_NOTIFICATIONS_LIMIT=False):
+        with self.settings(WEBLINE_NOTIFICATIONS_LIMIT=False):
             Notification.objects.filter(
                 user=self.admin_user
             )[0].limit_notification()
             all_n_after = Notification.objects.filter(user=self.admin_user)
             count = all_n_after.count()
+            first_content = all_n_after.order_by('send_date')[0].content
+            last_content = all_n_after.order_by('-send_date')[0].content
             self.assertEqual(
                 count,
                 5
