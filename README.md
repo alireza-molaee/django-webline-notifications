@@ -33,7 +33,7 @@ now you can add django-simple-notifications to the settings.py file:
 ```
 INSTALLED_APPS = (
     ...
-    'webline-notifications',
+    'webline_notifications',
     'django.contrib.admin',
 )
 ```
